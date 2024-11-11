@@ -8,8 +8,6 @@ import ChatOutput from "./component/Chatoutput/ChatOutput";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [message, setMessage] = useState("");
-  console.log(message);
 
   return (
     <div className="h-screen absolute ">
@@ -29,11 +27,11 @@ function App() {
 
         <div className={isSidebarOpen ? "w-5/6" : "w-full"}>
           <Header />
-          <div className="h-screen flex flex-col flex-grow overflow-y-scroll">
+          <div className="h-screen flex flex-col flex-grow overflow-y-auto">
             <div className="flex-1">
               <ChatOutput />
-            </div> 
-            <div className="mb-20 fixed bottom-0">
+            </div>
+            <div className="mb-2 fixed bottom-0">
               <Searchbar />
             </div>
           </div>
