@@ -1,0 +1,50 @@
+Here's the JavaScript code to make responses more readable by formatting them into paragraphs:
+ ```javascript
+  function formatIntoParagraphs(text) { 
+  // Split the text into sentences 
+  const sentences = text.match(/[^.!?]+[.!?]+/g); 
+  if (!sentences) {
+   return text;
+    // Return the original text if no sentences are detected 
+    } 
+    // Join sentences into paragraphs with two line breaks 
+    const paragraphs = sentences.map((sentence, index) => { 
+        if (index !== 0 && index % 3 === 0) 
+        { // Assuming 3 sentences per paragraph 
+    return '\n\n' + sentence.trim(); 
+    } 
+    return sentence.trim(); }).join(' '); 
+    return paragraphs.trim(); } 
+    // Example usage 
+    const originalText = "This is a sample text. It contains multiple sentences. 
+    They will be split into paragraphs. Here's another sentence for good measure. 
+    And one more to ensure we have enough!"; 
+    console.log(formatIntoParagraphs(originalText));
+
+    
+    ``` ### Explanation:
+    1. **Sentence Detection**: 
+
+    The function uses a regular expression to split the text into sentences. 
+    This regex looks for sequences of characters not ending
+    with `.`, `!`, or `?` followed by these punctuation marks.
+
+    2. **Paragraph Formation**:
+     It then iterates over these sentences,
+    adding two line breaks every third sentence to create paragraphs. 
+    This number can be adjusted for longer or shorter paragraphs.
+
+    3. **Trim Whitespace**:
+     The function trims any extra spaces from the
+    sentences and at the end of the result to ensure clean output.
+
+    4. **Edge Cases**: 
+    If no sentences are detected (like in the case of very short text 
+    or text without proper sentence ending punctuation), the original 
+    text is returned. 
+            
+    This approach will format text into readable paragraphs, which should 
+    enhance the user experience by breaking up long text into more
+    digestible chunks. Remember, the paragraph 
+    length (here, set to 3 sentences) can be customized based on 
+    readability preferences or context.

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
-import { getChat } from "../../assets/OpenApi/index2";
-import { useSelector, useDispatch } from "react-redux";
+import { getChat } from "../../assets/OpenApi/index";
+import { useDispatch } from "react-redux";
 import { setInputMessage, setResponse } from "../../assets/store/store";
 
 function SearchBar() {
   const dispatch = useDispatch();
-  const message = useSelector((state) => state.message.inputMessage);
-  const response = useSelector((state) => state.message.response);
+  // const message = useSelector((state) => state.message.inputMessage);
+  // const response = useSelector((state) => state.message.response);
 
   const [inputData, setInputData] = useState("");
 
@@ -15,6 +15,7 @@ function SearchBar() {
     e.preventDefault();
     dispatch(setInputMessage(inputData));
     const result = await getChat(inputData);
+    console.log(result);
     dispatch(setResponse(result));
   };
   

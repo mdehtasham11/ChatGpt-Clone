@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Header } from "./component/index";
+import Header from "./component/Header/Header";
 import SideBar from "./component/SideBar/SideBar";
 import CloseSidebar from "./component/CloseSidebar/CloseSidebar";
 import Searchbar from "./component/Chatoutput/SearchBar";
@@ -27,8 +27,8 @@ function App() {
 
         <div className={isSidebarOpen ? "w-5/6" : "w-full"}>
           <Header />
-          <div className="h-screen flex flex-col flex-grow overflow-y-auto">
-            <div className="flex-1">
+          <div className="h-screen flex flex-col flex-grow overflow-y-scroll">
+            <div className="flex-1 ">
               <ChatOutput />
             </div>
             <div className="mb-2 fixed bottom-0">
